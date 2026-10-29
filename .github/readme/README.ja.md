@@ -1,18 +1,18 @@
 <p align="center">
-  <img src="../../logo.png" alt="i-have-adhd" width="140" />
+  <img src="../../logo.png" alt="tenho-tdah" width="140" />
 </p>
 <p align="center">
   <strong align="center">ADHDに配慮した簡潔な出力。（診断済みかは関係なく、誰でも気軽に使えます！）</strong>
 </p>
 <p align="center">
-  <a href="../../LICENSE"><img src="https://img.shields.io/github/license/ayghri/i-have-adhd?style=flat" alt="ライセンス"></a>
+  <a href="../../LICENSE"><img src="https://img.shields.io/github/license/marcelcorrea-stark/tenho-tdah?style=flat" alt="ライセンス"></a>
 </p>
 
 <p align="center">
-  <a href="../../README.md" title="English" aria-label="English">🇬🇧</a> ·
+  <a href="README.en.md" title="English" aria-label="English">🇬🇧</a> ·
   <a href="README.zh-CN.md" title="简体中文" aria-label="简体中文">🇨🇳</a> ·
   <a href="README.id.md" title="Bahasa Indonesia" aria-label="Bahasa Indonesia">🇮🇩</a> ·
-  <a href="README.pt-BR.md" title="Português (Brasil)" aria-label="Português (Brasil)">🇧🇷</a> ·
+  <a href="../../README.md" title="Português (Brasil)" aria-label="Português (Brasil)">🇧🇷</a> ·
   <strong title="日本語" aria-label="日本語">🇯🇵</strong> ·
   <a href="README.vi.md" title="Tiếng Việt" aria-label="Tiếng Việt">🇻🇳</a> ·
   <a href="README.ko.md" title="한국어" aria-label="한국어">🇰🇷</a> ·
@@ -27,7 +27,7 @@
 CLIのプロンプトに以下をコピー＆ペーストしてください：
 
 ```text
-Install the i-have-adhd skill/plugin from https://github.com/ayghri/i-have-adhd, refer to the repo's AGENTS.md for instructions.
+Install the tenho-tdah skill/plugin from https://github.com/marcelcorrea-stark/tenho-tdah, refer to the repo's AGENTS.md for instructions.
 ```
 
 または、🔗 [インストール手順を確認する](../install/INSTALL.ja.md)。
@@ -66,7 +66,7 @@ Install the i-have-adhd skill/plugin from https://github.com/ayghri/i-have-adhd,
 
 ## 10のルール
 
-ルールは10個。全文は [SKILL.md](../../skills/i-have-adhd/SKILL.md) を参照してください。
+ルールは10個。全文は [SKILL.md](../../skills/tenho-tdah/SKILL.md) を参照してください。
 
 1. 次に取る行動から始める。
 2. 複数ステップの作業には番号を付ける。
@@ -81,16 +81,16 @@ Install the i-have-adhd skill/plugin from https://github.com/ayghri/i-have-adhd,
 
 ## カスタマイズ
 
-リポジトリをForkし、`skills/i-have-adhd/SKILL.md` を編集してから自分のコピーに差し替えます。
+リポジトリをForkし、`skills/tenho-tdah/SKILL.md` を編集してから自分のコピーに差し替えます。
 
 ```bash
-claude plugin uninstall i-have-adhd            # 先に本家のコピーを削除
-claude plugin marketplace remove i-have-adhd   # Fork版と本家で名前が重複するため
-claude plugin marketplace add <your-username>/i-have-adhd
-claude plugin install i-have-adhd@i-have-adhd
+claude plugin uninstall tenho-tdah            # 先に本家のコピーを削除
+claude plugin marketplace remove tenho-tdah   # Fork版と本家で名前が重複するため
+claude plugin marketplace add <your-username>/tenho-tdah
+claude plugin install tenho-tdah@tenho-tdah
 ```
 
-Claude Code を再起動し、`/i-have-adhd` をもう一度呼び出してください。
+Claude Code を再起動し、`/tenho-tdah` をもう一度呼び出してください。
 
 ## クレジット
 

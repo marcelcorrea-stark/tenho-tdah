@@ -6,7 +6,7 @@
 ### 安装
 
 ```bash
-agy plugin install https://github.com/ayghri/i-have-adhd
+agy plugin install https://github.com/marcelcorrea-stark/tenho-tdah
 ```
 
 ### 验证
@@ -18,17 +18,17 @@ agy plugin list
 ### 更新
 
 ```bash
-agy plugin uninstall i-have-adhd
-agy plugin install https://github.com/ayghri/i-have-adhd
+agy plugin uninstall tenho-tdah
+agy plugin install https://github.com/marcelcorrea-stark/tenho-tdah
 ```
 
 ### 卸载
 
 ```bash
-agy plugin uninstall i-have-adhd
+agy plugin uninstall tenho-tdah
 ```
 
-也可以保留安装并将其关闭：`agy plugin disable i-have-adhd`。
+也可以保留安装并将其关闭：`agy plugin disable tenho-tdah`。
 
 ### 始终启用（可选）
 
@@ -66,20 +66,20 @@ AstronClaw 支持将 Markdown 文件导入为自定义技能。此方式使用�
 
 ### 安装
 
-1. 下载[技能源文件 SKILL.md](https://raw.githubusercontent.com/ayghri/i-have-adhd/main/skills/i-have-adhd/SKILL.md)，保存为 `SKILL.md`，上传前先阅读文件内容。
+1. 下载[技能源文件 SKILL.md](https://raw.githubusercontent.com/marcelcorrea-stark/tenho-tdah/main/skills/tenho-tdah/SKILL.md)，保存为 `SKILL.md`，上传前先阅读文件内容。
 2. 在 AstronClaw 中打开**我的技能**，选择**新建**，上传该 `.md` 文件。
-3. 确认导入后的技能名称为 `i-have-adhd`，通过**启用/禁用**控制技能是否可用。
+3. 确认导入后的技能名称为 `tenho-tdah`，通过**启用/禁用**控制技能是否可用。
 
 只需上传技能 Markdown 文件。上传会将该文件发送给 AstronClaw；
 本仓库的插件清单和钩子不参与此安装流程。
 
 ### 验证与启用
 
-确认**我的技能**中出现 `i-have-adhd`，通过**下载**将导入后的指令与原始技能对照检查，
+确认**我的技能**中出现 `tenho-tdah`，通过**下载**将导入后的指令与原始技能对照检查，
 然后启用并尝试输入：
 
 ```text
-请在本次对话中使用 i-have-adhd 技能。说明如何在新文件夹中创建一个空的 Git 仓库。
+请在本次对话中使用 tenho-tdah 技能。说明如何在新文件夹中创建一个空的 Git 仓库。
 ```
 
 检查回复是否先给出行动，并为步骤编号。这是对导入技能的手动检查；
@@ -89,21 +89,21 @@ AstronClaw 支持将 Markdown 文件导入为自定义技能。此方式使用�
 
 AstronClaw 支持指定调用和自动调用技能。官方指南未说明是否遵循
 `disable-model-invocation: true`，因此不希望技能可用时，请使用**禁用**开关。
-无需依赖 `/i-have-adhd` 斜杠命令。
+无需依赖 `/tenho-tdah` 斜杠命令。
 
-技能要求助手在本次对话中保持该回复风格，直到你说 `stop adhd mode` 或
-`normal mode`。这条指令不会更改平台开关；如需开始不使用该技能的新会话，
+技能要求助手在本次对话中保持该回复风格，直到你说 `parar modo tdah` 或
+`modo normal`。这条指令不会更改平台开关；如需开始不使用该技能的新会话，
 请禁用技能并开启新对话。
 
 ### 更新
 
 下载最新的技能源文件 `SKILL.md`。如果修改过已导入的副本，请先使用**下载**
-保存备份。如需完整替换，请删除旧的 `i-have-adhd` 条目，重新导入文件，
+保存备份。如需完整替换，请删除旧的 `tenho-tdah` 条目，重新导入文件，
 并在新对话中运行验证提示词。
 
 ### 卸载
 
-在**我的技能**中选择 `i-have-adhd`，点击**删除**，然后开启新对话。
+在**我的技能**中选择 `tenho-tdah`，点击**删除**，然后开启新对话。
 如需保留已导入的副本以便以后使用，可选择**禁用**。
 
 </details>
@@ -114,11 +114,11 @@ AstronClaw 支持指定调用和自动调用技能。官方指南未说明是否
 ### 安装
 
 ```bash
-claude plugin marketplace add ayghri/i-have-adhd
-claude plugin install i-have-adhd@i-have-adhd
+claude plugin marketplace add marcelcorrea-stark/tenho-tdah
+claude plugin install tenho-tdah@tenho-tdah
 ```
 
-输入 `/i-have-adhd`。
+输入 `/tenho-tdah`。
 
 ### 验证
 
@@ -129,40 +129,40 @@ claude plugin list
 ### 更新
 
 ```bash
-claude plugin marketplace update i-have-adhd
-claude plugin update i-have-adhd@i-have-adhd
+claude plugin marketplace update tenho-tdah
+claude plugin update tenho-tdah@tenho-tdah
 ```
 
 ### 卸载
 
 ```bash
-claude plugin uninstall i-have-adhd
-claude plugin marketplace remove i-have-adhd
+claude plugin uninstall tenho-tdah
+claude plugin marketplace remove tenho-tdah
 ```
 
-也可以保留安装并将其关闭：`claude plugin disable i-have-adhd`。
+也可以保留安装并将其关闭：`claude plugin disable tenho-tdah`。
 
 ### 始终启用（可选）
 
-`SessionStart` 钩子会在每次会话开始时加载完整规则，无需输入 `/i-have-adhd`：
+`SessionStart` 钩子会在每次会话开始时加载完整规则，无需输入 `/tenho-tdah`：
 
 ```bash
-touch ~/.claude/.i-have-adhd-always
+touch ~/.claude/.tenho-tdah-always
 ```
 
 如果你使用自定义 Claude 配置目录，请改为在其中创建标志文件：
 
 ```bash
-touch "$CLAUDE_CONFIG_DIR/.i-have-adhd-always"
+touch "$CLAUDE_CONFIG_DIR/.tenho-tdah-always"
 ```
 
 恢复为按需启用：
 
 ```bash
-rm ~/.claude/.i-have-adhd-always
+rm ~/.claude/.tenho-tdah-always
 ```
 
-该钩子只在标志文件存在时触发，因此仅安装插件不会改变任何行为。“stop adhd mode”仍可在当前会话中将其关闭。
+该钩子只在标志文件存在时触发，因此仅安装插件不会改变任何行为。“parar modo tdah”仍可在当前会话中将其关闭。
 
 </details>
 
@@ -173,11 +173,11 @@ rm ~/.claude/.i-have-adhd-always
 ### 安装
 
 ```bash
-codex plugin marketplace add ayghri/i-have-adhd --ref main
-codex plugin add i-have-adhd@i-have-adhd
+codex plugin marketplace add marcelcorrea-stark/tenho-tdah --ref main
+codex plugin add tenho-tdah@tenho-tdah
 ```
 
-明确输入 `$i-have-adhd` 来启用此技能。Codex 不会自动调用它。
+明确输入 `$tenho-tdah` 来启用此技能。Codex 不会自动调用它。
 
 ### 验证
 
@@ -188,16 +188,16 @@ codex plugin list
 ### 更新
 
 ```bash
-codex plugin marketplace upgrade i-have-adhd
-codex plugin remove i-have-adhd
-codex plugin add i-have-adhd@i-have-adhd
+codex plugin marketplace upgrade tenho-tdah
+codex plugin remove tenho-tdah
+codex plugin add tenho-tdah@tenho-tdah
 ```
 
 ### 卸载
 
 ```bash
-codex plugin remove i-have-adhd
-codex plugin marketplace remove i-have-adhd
+codex plugin remove tenho-tdah
+codex plugin marketplace remove tenho-tdah
 ```
 
 ### 始终启用（可选）
@@ -234,16 +234,16 @@ Gemini CLI 没有插件市场，因此有两种原生方式：**自定义命令*
 
 ```bash
 mkdir -p ~/.gemini/commands
-curl -fsSL https://raw.githubusercontent.com/ayghri/i-have-adhd/main/skills/i-have-adhd/agents/gemini.toml \
-  -o ~/.gemini/commands/i-have-adhd.toml
+curl -fsSL https://raw.githubusercontent.com/marcelcorrea-stark/tenho-tdah/main/skills/tenho-tdah/agents/gemini.toml \
+  -o ~/.gemini/commands/tenho-tdah.toml
 ```
 
-开始新会话并输入 `/i-have-adhd`。它会在该会话中持续启用。
+开始新会话并输入 `/tenho-tdah`。它会在该会话中持续启用。
 
 ### 安装（扩展方式，始终启用）
 
 ```bash
-gemini extensions install https://github.com/ayghri/i-have-adhd
+gemini extensions install https://github.com/marcelcorrea-stark/tenho-tdah
 ```
 
 扩展会加载导入完整技能的 `GEMINI.md`，因此规则从第一条消息起生效。必须安装 `git`。
@@ -252,23 +252,23 @@ gemini extensions install https://github.com/ayghri/i-have-adhd
 
 ```bash
 gemini extensions list          # 扩展方式
-ls ~/.gemini/commands           # 命令方式：应存在 i-have-adhd.toml
+ls ~/.gemini/commands           # 命令方式：应存在 tenho-tdah.toml
 ```
 
-也可以在会话中输入 `/`，确认列表中有 `i-have-adhd`。
+也可以在会话中输入 `/`，确认列表中有 `tenho-tdah`。
 
 ### 更新
 
 ```bash
-gemini extensions update i-have-adhd    # 扩展方式
+gemini extensions update tenho-tdah    # 扩展方式
 # 命令方式：重新运行上面的 curl
 ```
 
 ### 卸载
 
 ```bash
-gemini extensions uninstall i-have-adhd    # 扩展方式
-rm ~/.gemini/commands/i-have-adhd.toml     # 命令方式
+gemini extensions uninstall tenho-tdah    # 扩展方式
+rm ~/.gemini/commands/tenho-tdah.toml     # 命令方式
 ```
 
 </details>
@@ -281,21 +281,21 @@ Copilot 原生读取 Agent Skills：直接使用同一个 `SKILL.md`，无需转
 ### 安装
 
 ```bash
-npx skills add ayghri/i-have-adhd -a github-copilot        # 此项目
-npx skills add ayghri/i-have-adhd -a github-copilot -g     # 所有项目
+npx skills add marcelcorrea-stark/tenho-tdah -a github-copilot        # 此项目
+npx skills add marcelcorrea-stark/tenho-tdah -a github-copilot -g     # 所有项目
 ```
 
 不使用 CLI 时，将技能文件夹复制到 Copilot 扫描的任一目录：
 
 ```bash
-git clone https://github.com/ayghri/i-have-adhd
+git clone https://github.com/marcelcorrea-stark/tenho-tdah
 mkdir -p ~/.copilot/skills
-cp -R i-have-adhd/skills/i-have-adhd ~/.copilot/skills/
+cp -R tenho-tdah/skills/tenho-tdah ~/.copilot/skills/
 ```
 
 ### 验证
 
-在聊天输入框中输入 `/`，确认出现 `i-have-adhd`。或者：
+在聊天输入框中输入 `/`，确认出现 `tenho-tdah`。或者：
 
 ```bash
 npx skills list
@@ -305,7 +305,7 @@ npx skills ls -g    # 如果全局安装
 ### 更新
 
 ```bash
-npx skills update i-have-adhd
+npx skills update tenho-tdah
 ```
 
 也可以在 `git pull` 后重新复制该文件夹。
@@ -313,10 +313,10 @@ npx skills update i-have-adhd
 ### 卸载
 
 ```bash
-npx skills remove i-have-adhd
+npx skills remove tenho-tdah
 ```
 
-也可以从安装所在的 skills 目录删除 `i-have-adhd` 文件夹。
+也可以从安装所在的 skills 目录删除 `tenho-tdah` 文件夹。
 
 ### 启用说明
 
@@ -353,17 +353,17 @@ Copilot 遵循 `disable-model-invocation`：与 Claude Code 相同，在调用�
 ### 安装
 
 ```bash
-hermes skills install ayghri/i-have-adhd/skills/i-have-adhd
+hermes skills install marcelcorrea-stark/tenho-tdah/skills/tenho-tdah
 ```
 
-输入 `/i-have-adhd`。技能会安装到 `~/.hermes/skills/`，并在下次会话启动时作为斜杠命令生效。
+输入 `/tenho-tdah`。技能会安装到 `~/.hermes/skills/`，并在下次会话启动时作为斜杠命令生效。
 
 想先浏览内容？将此仓库添加为技能源（“tap”），然后搜索并安装：
 
 ```bash
-hermes skills tap add ayghri/i-have-adhd
-hermes skills search adhd
-hermes skills install ayghri/i-have-adhd/skills/i-have-adhd
+hermes skills tap add marcelcorrea-stark/tenho-tdah
+hermes skills search tdah
+hermes skills install marcelcorrea-stark/tenho-tdah/skills/tenho-tdah
 ```
 
 ### 验证
@@ -375,16 +375,16 @@ hermes skills list
 ### 更新
 
 ```bash
-hermes skills update i-have-adhd
+hermes skills update tenho-tdah
 ```
 
 ### 卸载
 
 ```bash
-hermes skills uninstall i-have-adhd
+hermes skills uninstall tenho-tdah
 ```
 
-也可以同时删除 tap：`hermes skills tap remove ayghri/i-have-adhd`。
+也可以同时删除 tap：`hermes skills tap remove marcelcorrea-stark/tenho-tdah`。
 
 ### 始终启用（可选）
 
@@ -420,18 +420,18 @@ hermes skills uninstall i-have-adhd
 
 1. 输入 `/plugins`。
 2. 选择 **Custom**。
-3. 粘贴 `https://github.com/ayghri/i-have-adhd` 并 Enter。
+3. 粘贴 `https://github.com/marcelcorrea-stark/tenho-tdah` 并 Enter。
 4. 选择 **Trust and install**。
 
-使用斜杠命令 `/skill:i-have-adhd` 显式调用此技能。
+使用斜杠命令 `/skill:tenho-tdah` 显式调用此技能。
 
 ### 更新
 
-在 Kimi Code 会话中输入 `/plugins`，将光标移至 **I Have ADHD**，按 `R`。
+在 Kimi Code 会话中输入 `/plugins`，将光标移至 **Tenho TDAH**，按 `R`。
 
 ### 卸载
 
-在 Kimi Code 会话中输入 `/plugins`，将光标移至 **I Have ADHD**，按 `D`。
+在 Kimi Code 会话中输入 `/plugins`，将光标移至 **Tenho TDAH**，按 `D`。
 
 </details>
 
@@ -439,62 +439,62 @@ hermes skills uninstall i-have-adhd
 <details>
 <summary><strong>OpenCode</strong></summary>
 
-插件支持 OpenCode V1 **1.18.29及以上**和 V2。它注册技能与 `/i-have-adhd` 命令，并提供可选的始终启用模式。较旧的 V1 需要升级，或继续使用上一个技能版本的插件。
+插件支持 OpenCode V1 **1.18.29及以上**和 V2。它注册技能与 `/tenho-tdah` 命令，并提供可选的始终启用模式。较旧的 V1 需要升级，或继续使用上一个技能版本的插件。
 
 ### 安装
 
 在所有项目中使用：
 
 ```bash
-git clone https://github.com/ayghri/i-have-adhd ~/.config/opencode/vendor/i-have-adhd
+git clone https://github.com/marcelcorrea-stark/tenho-tdah ~/.config/opencode/vendor/tenho-tdah
 mkdir -p ~/.config/opencode/plugins
-cat > ~/.config/opencode/plugins/i-have-adhd.js <<'EOF'
-export { default } from '../vendor/i-have-adhd/.opencode/plugins/i-have-adhd.mjs';
+cat > ~/.config/opencode/plugins/tenho-tdah.js <<'EOF'
+export { default } from '../vendor/tenho-tdah/.opencode/plugins/tenho-tdah.mjs';
 EOF
 ```
 
 现有 V1 安装请保留 `opencode.json` 中的 `plugin` 条目。如果改用上述加载文件，请删除该条目。
 
-开启新会话并输入 `/i-have-adhd`。规则持续生效，直到输入 `stop adhd mode` 或 `normal mode`。
+开启新会话并输入 `/tenho-tdah`。规则持续生效，直到输入 `parar modo tdah` 或 `modo normal`。
 
 #### 仅技能与命令（不含始终启用）
 
 也可以从检出目录将技能与命令复制到 OpenCode 的全局目录：
 
 ```bash
-mkdir -p ~/.config/opencode/skills/i-have-adhd ~/.config/opencode/commands
-cp skills/i-have-adhd/SKILL.md ~/.config/opencode/skills/i-have-adhd/SKILL.md
-cp .opencode/command/i-have-adhd.md ~/.config/opencode/commands/i-have-adhd.md
+mkdir -p ~/.config/opencode/skills/tenho-tdah ~/.config/opencode/commands
+cp skills/tenho-tdah/SKILL.md ~/.config/opencode/skills/tenho-tdah/SKILL.md
+cp .opencode/command/tenho-tdah.md ~/.config/opencode/commands/tenho-tdah.md
 ```
 
 ### 验证
 
-启动 OpenCode，输入 `/`，确认命令列表中出现 `i-have-adhd`。
+启动 OpenCode，输入 `/`，确认命令列表中出现 `tenho-tdah`。
 
 ### 更新
 
 ```bash
-git -C ~/.config/opencode/vendor/i-have-adhd pull
+git -C ~/.config/opencode/vendor/tenho-tdah pull
 ```
 
 使用复制方式安装时，更新检出目录后重新复制这两个文件。
 
 ### 卸载
 
-删除 `~/.config/opencode/plugins/i-have-adhd.js`。使用复制方式安装时，删除 `~/.config/opencode/skills/i-have-adhd/` 和 `~/.config/opencode/commands/i-have-adhd.md`。现有 V1 配置方式则移除相应的 `plugin` 条目。
+删除 `~/.config/opencode/plugins/tenho-tdah.js`。使用复制方式安装时，删除 `~/.config/opencode/skills/tenho-tdah/` 和 `~/.config/opencode/commands/tenho-tdah.md`。现有 V1 配置方式则移除相应的 `plugin` 条目。
 
 ### 始终启用（可选）
 
 需要插件。创建标志后，每一轮都会将完整规则集追加到系统提示：
 
 ```bash
-touch ~/.config/opencode/.i-have-adhd-always
+touch ~/.config/opencode/.tenho-tdah-always
 ```
 
-`stop adhd mode` 或 `normal mode` 会要求代理在当前会话中恢复通常的输出风格。删除标志可停止自动注入：
+`parar modo tdah` 或 `modo normal` 会要求代理在当前会话中恢复通常的输出风格。删除标志可停止自动注入：
 
 ```bash
-rm ~/.config/opencode/.i-have-adhd-always
+rm ~/.config/opencode/.tenho-tdah-always
 ```
 
 如果设置了 `XDG_CONFIG_HOME`，请将这些路径中的 `~/.config` 替换为该目录。
@@ -510,21 +510,21 @@ Pi 将此仓库识别为原生包：`extensions/` 提供会话级持久模式，
 ### 安装
 
 ```bash
-pi install https://github.com/ayghri/i-have-adhd
+pi install https://github.com/marcelcorrea-stark/tenho-tdah
 ```
 
 开启新的 Pi 会话，为当前会话切换 ADHD 友好输出：
 
 ```text
-/i-have-adhd
+/tenho-tdah
 ```
 
-模式生效期间，页脚会显示 `● ADHD ON`。再次运行该命令即可关闭，也可以明确指定：
+模式生效期间，页脚会显示 `● TDAH ATIVO`。再次运行该命令即可关闭，也可以明确指定：
 
 ```text
-/i-have-adhd on
-/i-have-adhd off
-stop adhd mode
+/tenho-tdah on
+/tenho-tdah off
+parar modo tdah
 ```
 
 与 Claude Code 的钩子类似，扩展只把规则集加入一次对话，而不是在每次请求时重写系统提示，并在压缩丢弃后重新注入。
@@ -532,13 +532,13 @@ stop adhd mode
 现有的 Agent Skills 命令仍作为别名可用：
 
 ```text
-/skill:i-have-adhd
+/skill:tenho-tdah
 ```
 
 以默认启用模式开启新的 Pi 会话：
 
 ```bash
-pi --adhd
+pi --tdah
 ```
 
 ### 验证
@@ -547,12 +547,12 @@ pi --adhd
 pi list
 ```
 
-确认列表中出现该 GitHub 包，然后输入 `/i-have-adhd`，检查页脚是否显示 `● ADHD ON`。
+确认列表中出现该 GitHub 包，然后输入 `/tenho-tdah`，检查页脚是否显示 `● TDAH ATIVO`。
 
 ### 更新
 
 ```bash
-pi update https://github.com/ayghri/i-have-adhd
+pi update https://github.com/marcelcorrea-stark/tenho-tdah
 ```
 
 或使用 `pi update --extensions` 更新所有未固定版本的 Pi 包。
@@ -560,7 +560,7 @@ pi update https://github.com/ayghri/i-have-adhd
 ### 卸载
 
 ```bash
-pi remove https://github.com/ayghri/i-have-adhd
+pi remove https://github.com/marcelcorrea-stark/tenho-tdah
 ```
 
 ### 始终启用（可选）
@@ -568,20 +568,20 @@ pi remove https://github.com/ayghri/i-have-adhd
 在 Pi 的智能体配置目录中创建标志文件：
 
 ```bash
-touch ~/.pi/agent/.i-have-adhd-always
+touch ~/.pi/agent/.tenho-tdah-always
 ```
 
-扩展会在每个新建、恢复、分叉或重载的会话中检查该标志。当前会话已保存的选择优先于此默认值，因此 `stop adhd mode` 仍可让该会话保持关闭。
+扩展会在每个新建、恢复、分叉或重载的会话中检查该标志。当前会话已保存的选择优先于此默认值，因此 `parar modo tdah` 仍可让该会话保持关闭。
 
 恢复为按需启用：
 
 ```bash
-rm ~/.pi/agent/.i-have-adhd-always
+rm ~/.pi/agent/.tenho-tdah-always
 ```
 
 ### 配置文件（可选）
 
-在 Pi 的智能体配置目录中创建 `~/.pi/agent/i-have-adhd.json`：
+在 Pi 的智能体配置目录中创建 `~/.pi/agent/tenho-tdah.json`：
 
 ```json
 {
@@ -590,12 +590,12 @@ rm ~/.pi/agent/.i-have-adhd-always
 }
 ```
 
-- `alwaysOn`：每个会话都以规则启用开始——与 `.i-have-adhd-always` 标志文件等效，标志文件仍然可用
-- `hideStatus`：隐藏 `● ADHD ON` 状态栏条目；规则和 `/i-have-adhd` 命令仍然有效
+- `alwaysOn`：每个会话都以规则启用开始——与 `.tenho-tdah-always` 标志文件等效，标志文件仍然可用
+- `hideStatus`：隐藏 `● TDAH ATIVO` 状态栏条目；规则和 `/tenho-tdah` 命令仍然有效
 
-该文件在扩展启动时读取一次，修改后需重启 Pi。当前会话已保存的选择优先于 `alwaysOn`，因此 `stop adhd mode` 仍可让该会话保持关闭。
+该文件在扩展启动时读取一次，修改后需重启 Pi。当前会话已保存的选择优先于 `alwaysOn`，因此 `parar modo tdah` 仍可让该会话保持关闭。
 
-如果设置了 `PI_CODING_AGENT_DIR`，请改为在该目录中放置 `.i-have-adhd-always`。修改标志后运行 `/reload` 或开启新会话。
+如果设置了 `PI_CODING_AGENT_DIR`，请改为在该目录中放置 `.tenho-tdah-always`。修改标志后运行 `/reload` 或开启新会话。
 
 </details>
 
@@ -606,24 +606,24 @@ rm ~/.pi/agent/.i-have-adhd-always
 ### 安装
 
 ```bash
-omp plugin marketplace add ayghri/i-have-adhd
-omp plugin install --scope user i-have-adhd@i-have-adhd
+omp plugin marketplace add marcelcorrea-stark/tenho-tdah
+omp plugin install --scope user tenho-tdah@tenho-tdah
 ```
 
-开启新的 OMP 会话并运行 `/i-have-adhd` 切换模式。
+开启新的 OMP 会话并运行 `/tenho-tdah` 切换模式。
 
 ### 更新
 
 ```bash
-omp plugin marketplace update i-have-adhd
-omp plugin upgrade --scope user i-have-adhd@i-have-adhd
+omp plugin marketplace update tenho-tdah
+omp plugin upgrade --scope user tenho-tdah@tenho-tdah
 ```
 
 ### 卸载
 
 ```bash
-omp plugin uninstall --scope user i-have-adhd@i-have-adhd
-omp plugin marketplace remove i-have-adhd
+omp plugin uninstall --scope user tenho-tdah@tenho-tdah
+omp plugin marketplace remove tenho-tdah
 ```
 
 </details>
@@ -635,12 +635,12 @@ omp plugin marketplace remove i-have-adhd
 ### 安装
 
 ```bash
-qwen extensions install ayghri/i-have-adhd
+qwen extensions install marcelcorrea-stark/tenho-tdah
 ```
 
 Qwen Code 支持 GitHub 短路径，并可将该仓库安装为原生扩展。扩展会发现 `skills/` 下的技能。
 
-安装扩展本身不会改变输出，除非输入 `/i-have-adhd` 显式调用此技能。
+安装扩展本身不会改变输出，除非输入 `/tenho-tdah` 显式调用此技能。
 
 ### 验证
 
@@ -654,18 +654,18 @@ qwen extensions list
 /skills
 ```
 
-确认列表中出现 `i-have-adhd`。
+确认列表中出现 `tenho-tdah`。
 
 ### 更新
 
 ```bash
-qwen extensions update i-have-adhd
+qwen extensions update tenho-tdah
 ```
 
 ### 卸载
 
 ```bash
-qwen extensions uninstall i-have-adhd
+qwen extensions uninstall tenho-tdah
 ```
 
 </details>
@@ -680,22 +680,22 @@ Zed 的 Agent 原生读取 Agent Skills：直接使用同一个 `SKILL.md`，无
 在 Agent Panel 中打开 Skills 管理器，选择 **Create skill from URL**（命令面板中为 `agent: create skill from url`），然后粘贴：
 
 ```
-https://github.com/ayghri/i-have-adhd/blob/main/skills/i-have-adhd/SKILL.md
+https://github.com/marcelcorrea-stark/tenho-tdah/blob/main/skills/tenho-tdah/SKILL.md
 ```
 
-要用于所有项目，请保存到 **User** 作用域；仅用于一个项目则保存到 **Project** 作用域。然后在 Agent Panel 中输入 `/i-have-adhd`。
+要用于所有项目，请保存到 **User** 作用域；仅用于一个项目则保存到 **Project** 作用域。然后在 Agent Panel 中输入 `/tenho-tdah`。
 
 偏好文件系统方式？克隆仓库并将技能文件夹放入用户 skills 目录：
 
 ```bash
-git clone https://github.com/ayghri/i-have-adhd
+git clone https://github.com/marcelcorrea-stark/tenho-tdah
 mkdir -p ~/.agents/skills
-cp -R i-have-adhd/skills/i-have-adhd ~/.agents/skills/
+cp -R tenho-tdah/skills/tenho-tdah ~/.agents/skills/
 ```
 
 ### 验证
 
-在 Agent Panel 中打开 Skills 管理器，确认列表中有 `i-have-adhd`。也可以输入 `/` 并确认它出现。
+在 Agent Panel 中打开 Skills 管理器，确认列表中有 `tenho-tdah`。也可以输入 `/` 并确认它出现。
 
 ### 更新
 
@@ -703,7 +703,7 @@ cp -R i-have-adhd/skills/i-have-adhd ~/.agents/skills/
 
 ### 卸载
 
-从 Skills 管理器中移除 `i-have-adhd`，或删除 `~/.agents/skills/i-have-adhd`。
+从 Skills 管理器中移除 `tenho-tdah`，或删除 `~/.agents/skills/tenho-tdah`。
 
 ### 始终启用（可选）
 
@@ -738,20 +738,20 @@ cp -R i-have-adhd/skills/i-have-adhd ~/.agents/skills/
 ### 安装
 
 ```bash
-npx skills add ayghri/i-have-adhd                  # 当前项目
-npx skills add ayghri/i-have-adhd -g               # 所有项目
-npx skills add ayghri/i-have-adhd -a cursor -y     # 仅一个智能体
-npx skills add ayghri/i-have-adhd -a opencode -y
+npx skills add marcelcorrea-stark/tenho-tdah                  # 当前项目
+npx skills add marcelcorrea-stark/tenho-tdah -g               # 所有项目
+npx skills add marcelcorrea-stark/tenho-tdah -a cursor -y     # 仅一个智能体
+npx skills add marcelcorrea-stark/tenho-tdah -a opencode -y
 ```
 
-开启新的智能体聊天并输入 `/i-have-adhd`。
+开启新的智能体聊天并输入 `/tenho-tdah`。
 
 不使用 CLI 时，将技能文件夹复制到智能体扫描的路径：
 
 ```bash
-git clone https://github.com/ayghri/i-have-adhd
+git clone https://github.com/marcelcorrea-stark/tenho-tdah
 mkdir -p ~/.cursor/skills     # Cursor。OpenCode 使用 .agents/skills，其他智能体使用其自身路径
-cp -R i-have-adhd/skills/i-have-adhd ~/.cursor/skills/
+cp -R tenho-tdah/skills/tenho-tdah ~/.cursor/skills/
 ```
 
 ### 验证
@@ -764,15 +764,15 @@ npx skills ls -g    # 如果全局安装
 ### 更新
 
 ```bash
-npx skills update i-have-adhd
+npx skills update tenho-tdah
 npx skills update -g    # 如果全局安装
 ```
 
 ### 卸载
 
 ```bash
-npx skills remove i-have-adhd
-npx skills remove i-have-adhd -g    # 如果全局安装
+npx skills remove tenho-tdah
+npx skills remove tenho-tdah -g    # 如果全局安装
 ```
 
 ### 始终启用（可选）
@@ -803,31 +803,31 @@ npx skills remove i-have-adhd -g    # 如果全局安装
 ## 启用机制
 
 1. **已安装但未调用。** 在 Claude Code、Qwen Code 和 Codex 中，只有明确调用技能后才会发生变化。Claude Code 和 Qwen Code 遵循 `SKILL.md` 中的 `disable-model-invocation: true`；Codex 遵循 `agents/openai.yaml` 中的 `policy.allow_implicit_invocation: false`。其他运行环境可能会在启动时加载每个技能的描述，并自行启用技能。
-2. **明确调用技能。** 在 Claude Code 或 Qwen Code 中输入 `/i-have-adhd`，在 Codex 中输入 `$i-have-adhd`。规则将在该会话中启用。输入“stop adhd mode”或“normal mode”可将其关闭。
-3. **创建 `~/.claude/.i-have-adhd-always`**（Claude Code）。`SessionStart` 钩子会在每次会话中从第一条消息起加载完整规则。
+2. **明确调用技能。** 在 Claude Code 或 Qwen Code 中输入 `/tenho-tdah`，在 Codex 中输入 `$tenho-tdah`。规则将在该会话中启用。输入“parar modo tdah”或“modo normal”可将其关闭。
+3. **创建 `~/.claude/.tenho-tdah-always`**（Claude Code）。`SessionStart` 钩子会在每次会话中从第一条消息起加载完整规则。
 4. **添加上面的始终启用片段**（其他运行环境）。这样会将核心规则保留在智能体的持久上下文中。
 
 在 Claude Code、Qwen Code 和 Codex 中没有中间状态：未启用就是关闭。
 
 ## 故障排除
 
-**自动补全中没有 `/i-have-adhd`。** 重启智能体。插件索引在启动时读取。
+**自动补全中没有 `/tenho-tdah`。** 重启智能体。插件索引在启动时读取。
 
-**始终启用标志无效。** 更新插件（先运行 `claude plugin marketplace update i-have-adhd`，再运行 `claude plugin update i-have-adhd@i-have-adhd`）并重启。钩子在启动时读取，且该标志需要包含 `hooks/hooks.json` 的插件版本。
+**始终启用标志无效。** 更新插件（先运行 `claude plugin marketplace update tenho-tdah`，再运行 `claude plugin update tenho-tdah@tenho-tdah`）并重启。钩子在启动时读取，且该标志需要包含 `hooks/hooks.json` 的插件版本。
 
 **`claude plugin marketplace add` 失败。** 使用 `owner/repo` 格式。本地路径必须指向仓库根目录，而不是 `.claude-plugin/`。
 
-**已安装，但回复仍有开场白。** 开启新会话。如果仍然偏离，请收紧 `skills/i-have-adhd/SKILL.md` 中的措辞。
+**已安装，但回复仍有开场白。** 开启新会话。如果仍然偏离，请收紧 `skills/tenho-tdah/SKILL.md` 中的措辞。
 
-**想使用不同规则。** Fork 仓库，编辑 `skills/i-have-adhd/SKILL.md`，然后换成你的副本：
+**想使用不同规则。** Fork 仓库，编辑 `skills/tenho-tdah/SKILL.md`，然后换成你的副本：
 
 ```bash
-claude plugin uninstall i-have-adhd            # 先移除上游副本：
-claude plugin marketplace remove i-have-adhd   # fork 与上游使用相同名称
-claude plugin marketplace add <your-username>/i-have-adhd
-claude plugin install i-have-adhd@i-have-adhd
+claude plugin uninstall tenho-tdah            # 先移除上游副本：
+claude plugin marketplace remove tenho-tdah   # fork 与上游使用相同名称
+claude plugin marketplace add <your-username>/tenho-tdah
+claude plugin install tenho-tdah@tenho-tdah
 ```
 
-重启，然后再次调用 `/i-have-adhd`。
+重启，然后再次调用 `/tenho-tdah`。
 
 **执行 `npx skills add` 后找不到技能。** 开启新的智能体聊天。技能在会话开始时建立索引。确认文件夹位于智能体扫描的位置（Cursor 为 `~/.cursor/skills/`，OpenCode 为 `.agents/skills/`），且 frontmatter 中的 `name` 与文件夹名称一致。

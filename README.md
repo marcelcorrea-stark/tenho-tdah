@@ -1,18 +1,19 @@
 <p align="center">
-  <img src="./logo.png" alt="i-have-adhd" width="140" />
+  <img src="./logo.png" alt="tenho-tdah" width="140" />
 </p>
 <p align="center">
-  <strong align="center">ADHD-friendly outputs. No ADHD diagnosis needed!</strong>
+  <strong align="center">Respostas amigáveis para quem tem TDAH. Sem precisar de diagnóstico!</strong>
 </p>
 <p align="center">
-  <a href="LICENSE"><img src="https://img.shields.io/github/license/ayghri/i-have-adhd?style=flat" alt="License"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/github/license/marcelcorrea-stark/tenho-tdah?style=flat" alt="Licença"></a>
 </p>
 
 <p align="center">
-  <strong title="English" aria-label="English">🇬🇧</strong> ·
+  <a href=".github/readme/README.en.md" title="English" aria-label="English">🇬🇧</a> ·
   <a href=".github/readme/README.zh-CN.md" title="简体中文" aria-label="简体中文">🇨🇳</a> ·
   <a href=".github/readme/README.es.md" title="Español" aria-label="Español">🇪🇸</a> ·
-  <a href=".github/readme/README.pt-BR.md" title="Português (Brasil)" aria-label="Português (Brasil)">🇧🇷</a> ·
+  <a href=".github/readme/README.id.md" title="Bahasa Indonesia" aria-label="Bahasa Indonesia">🇮🇩</a> ·
+  <strong title="Português (Brasil)" aria-label="Português (Brasil)">🇧🇷</strong> ·
   <a href=".github/readme/README.ja.md" title="日本語" aria-label="日本語">🇯🇵</a> ·
   <a href=".github/readme/README.vi.md" title="Tiếng Việt" aria-label="Tiếng Việt">🇻🇳</a> ·
   <a href=".github/readme/README.ko.md" title="한국어" aria-label="한국어">🇰🇷</a> ·
@@ -23,85 +24,88 @@
 </p>
 
 
-## Install
+## Instalação
 
-Copy/paste into your CLI prompt:
+Copie e cole no prompt da sua CLI:
 
 ```text
-Install the i-have-adhd skill/plugin from https://github.com/ayghri/i-have-adhd, refer to the repo's AGENTS.md for instructions.
+Instale a skill/plugin tenho-tdah de https://github.com/marcelcorrea-stark/tenho-tdah, consulte o AGENTS.md do repositório para as instruções.
 ```
 
-Or 🔗 [check the installation instructions](INSTALL.md).
+Ou 🔗 [consulte as instruções de instalação](INSTALL.md).
 
-## What it does
+## O que ela faz
 
-A skill for your coding assistant that stops it from burying the answer. Action first. Steps numbered. No "Hope this helps!"
+Uma skill para o seu assistente de código que impede que ele enterre a resposta. Ação primeiro. Passos numerados. Nada de "Espero ter ajudado!"
 
-[Kacper Rutkiewicz | AI Made Simple](https://youtu.be/NEl8kPWZP_Y) has made a good breakdown of an earlier version of the skill.
-## What changes
+[Kacper Rutkiewicz | AI Made Simple](https://youtu.be/NEl8kPWZP_Y) (em inglês) fez uma boa análise de uma versão anterior da skill.
+
+## O que muda
 
 
 <table>
 <tr>
 <td width="50%">
 
-## Before
+## Antes
 
-> Great question! Let me think about this. Your auth flow has a few moving pieces: the middleware, the token verification, and the cookie handling. Looking at `src/auth.ts`, the `verifyToken` function (around lines 42-58) seems to be using an older `jsonwebtoken` API. One approach would be to update the package and rewrite that function. After making the change, you'd want to run the auth tests to confirm nothing breaks. By the way, you might also want to look at your dependency versions overall. Hope this helps! Let me know if you want to dig deeper.
+> Ótima pergunta! Deixa eu pensar sobre isso. Seu fluxo de autenticação tem algumas partes envolvidas: o middleware, a verificação do token e o tratamento do cookie. Olhando o `src/auth.ts`, a função `verifyToken` (por volta das linhas 42-58) parece estar usando uma API antiga do `jsonwebtoken`. Uma abordagem seria atualizar o pacote e reescrever essa função. Depois da mudança, você vai querer rodar os testes de autenticação para confirmar que nada quebrou. Aliás, talvez valha a pena revisar as versões das suas dependências no geral. Espero ter ajudado! Me avise se quiser se aprofundar.
 
 </td>
 
 <td width="50%">
 
-## After
+## Depois
 
-> Edit `src/auth.ts:42` to update the token validation.
+> Edite `src/auth.ts:42` para atualizar a validação do token.
 >
-> 1. Open `src/auth.ts`
-> 2. Replace `verifyToken` (lines 42–58) with the snippet below
-> 3. Run `npm test -- auth.spec.ts`
+> 1. Abra `src/auth.ts`
+> 2. Substitua `verifyToken` (linhas 42–58) pelo trecho abaixo
+> 3. Rode `npm test -- auth.spec.ts`
 >
-> Next: paste the first failing line if any test fails.
+> Próximo passo: cole a primeira linha de falha se algum teste quebrar.
 
 </td>
 </tr>
 </table>
 
 
-## The rules
+## As regras
 
-10 rules. Full text in [SKILL.md](./skills/i-have-adhd/SKILL.md).
+10 regras. Texto completo no [SKILL.md](./skills/tenho-tdah/SKILL.md).
 
-1. Lead with the next action.
-2. Number multi-step tasks.
-3. End with one concrete next step.
-4. Suppress tangents.
-5. Restate state every turn.
-6. Specific time estimates (minutes, not "a bit").
-7. Make wins visible.
-8. Matter-of-fact errors.
-9. Cap lists to 5 items.
-10. No preamble. No recap. No closers.
+1. Comece pela próxima ação.
+2. Numere tarefas de vários passos.
+3. Termine com um próximo passo concreto.
+4. Corte as tangentes.
+5. Repita o estado a cada turno.
+6. Estimativas de tempo específicas (minutos, não "um pouco").
+7. Deixe as conquistas visíveis.
+8. Erros relatados de forma objetiva.
+9. Limite listas a 5 itens.
+10. Sem preâmbulo. Sem recapitulação. Sem frases de encerramento.
 
-## Tune it
+## Personalize
 
-Fork, edit `skills/i-have-adhd/SKILL.md`, then swap your copy in:
+Faça um fork, edite `skills/tenho-tdah/SKILL.md` e troque pela sua cópia:
 
 ```bash
-claude plugin uninstall i-have-adhd            # drop the upstream copy first:
-claude plugin marketplace remove i-have-adhd   # fork and upstream share both names
-claude plugin marketplace add <your-username>/i-have-adhd
-claude plugin install i-have-adhd@i-have-adhd
+claude plugin uninstall tenho-tdah            # remova a cópia do upstream primeiro:
+claude plugin marketplace remove tenho-tdah   # fork e upstream compartilham os dois nomes
+claude plugin marketplace add <seu-usuario>/tenho-tdah
+claude plugin install tenho-tdah@tenho-tdah
 ```
 
-Restart your coding assistant, then re-invoke `/i-have-adhd`.
+Reinicie o seu assistente de código e invoque `/tenho-tdah` de novo.
 
-## Credits
+## Créditos
 
-Loosely based on *The Adult ADHD Tool Kit* by J. Russell Ramsay and Anthony L. Rostain. Adapted for how an LLM should respond, not how a human should organize their day.
+Baseado livremente em *The Adult ADHD Tool Kit*, de J. Russell Ramsay e Anthony L. Rostain. Adaptado para como um LLM deveria responder, não para como uma pessoa deveria organizar o dia.
 
-## License
+Fork em pt-BR de [ayghri/i-have-adhd](https://github.com/ayghri/i-have-adhd), de Ayoub G.
+
+## Licença
 
 [MIT](LICENSE).
 
-Star ⭐ if it saved you one scroll past one "Great question!"
+Dê uma ⭐ se isso te poupou de rolar a tela por mais um "Ótima pergunta!"

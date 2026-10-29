@@ -1,18 +1,18 @@
 <p align="center">
-  <img src="../../logo.png" alt="i-have-adhd" width="140" />
+  <img src="../../logo.png" alt="tenho-tdah" width="140" />
 </p>
 <p align="center">
   <strong align="center">Đầu ra thân thiện với người có ADHD. Không cần chẩn đoán ADHD!</strong>
 </p>
 <p align="center">
-  <a href="../../LICENSE"><img src="https://img.shields.io/github/license/ayghri/i-have-adhd?style=flat" alt="Giấy phép"></a>
+  <a href="../../LICENSE"><img src="https://img.shields.io/github/license/marcelcorrea-stark/tenho-tdah?style=flat" alt="Giấy phép"></a>
 </p>
 
 <p align="center">
-  <a href="../../README.md" title="English" aria-label="English">🇬🇧</a> ·
+  <a href="README.en.md" title="English" aria-label="English">🇬🇧</a> ·
   <a href="README.zh-CN.md" title="简体中文" aria-label="简体中文">🇨🇳</a> ·
   <a href="README.id.md" title="Bahasa Indonesia" aria-label="Bahasa Indonesia">🇮🇩</a> ·
-  <a href="README.pt-BR.md" title="Português (Brasil)" aria-label="Português (Brasil)">🇧🇷</a> ·
+  <a href="../../README.md" title="Português (Brasil)" aria-label="Português (Brasil)">🇧🇷</a> ·
   <a href="README.ja.md" title="日本語" aria-label="日本語">🇯🇵</a> ·
   <strong title="Tiếng Việt" aria-label="Tiếng Việt">🇻🇳</strong> ·
   <a href="README.ko.md" title="한국어" aria-label="한국어">🇰🇷</a> ·
@@ -64,7 +64,7 @@ Một skill dành cho trợ lý lập trình, giúp câu trả lời đi thẳng
 
 ## Các quy tắc
 
-10 quy tắc. Nội dung chi tiết tại [SKILL.md](../../skills/i-have-adhd/SKILL.md).
+10 quy tắc. Nội dung chi tiết tại [SKILL.md](../../skills/tenho-tdah/SKILL.md).
 
 1. Bắt đầu ngay bằng hành động tiếp theo.
 2. Đánh số các công việc gồm nhiều bước.
@@ -79,16 +79,16 @@ Một skill dành cho trợ lý lập trình, giúp câu trả lời đi thẳng
 
 ## Tùy chỉnh
 
-Fork repo, chỉnh sửa `skills/i-have-adhd/SKILL.md`, sau đó chuyển sang dùng bản của bạn:
+Fork repo, chỉnh sửa `skills/tenho-tdah/SKILL.md`, sau đó chuyển sang dùng bản của bạn:
 
 ```bash
-claude plugin uninstall i-have-adhd            # gỡ bản chính trước:
-claude plugin marketplace remove i-have-adhd   # bản fork và bản chính dùng chung tên
-claude plugin marketplace add <username-của-bạn>/i-have-adhd
-claude plugin install i-have-adhd@i-have-adhd
+claude plugin uninstall tenho-tdah            # gỡ bản chính trước:
+claude plugin marketplace remove tenho-tdah   # bản fork và bản chính dùng chung tên
+claude plugin marketplace add <username-của-bạn>/tenho-tdah
+claude plugin install tenho-tdah@tenho-tdah
 ```
 
-Khởi động lại Claude Code, sau đó gọi lại `/i-have-adhd`.
+Khởi động lại Claude Code, sau đó gọi lại `/tenho-tdah`.
 
 ## Ghi nhận tác giả (Credits)
 
