@@ -16,33 +16,33 @@ const SKILL_PATH = join(
   EXTENSION_DIR,
   "..",
   "skills",
-  "i-have-adhd",
+  "tenho-tdah",
   "SKILL.md",
 );
-const STATE_ENTRY_TYPE = "i-have-adhd-state";
-const RULES_MESSAGE_TYPE = "i-have-adhd-rules";
-const DISABLED_MESSAGE_TYPE = "i-have-adhd-disabled";
-const STATUS_KEY = "i-have-adhd";
-const DISABLE_CONFIRMATION = "ADHD mode disabled.";
-const STOP_PHRASES = new Set(["stop adhd mode", "normal mode"]);
+const STATE_ENTRY_TYPE = "tenho-tdah-state";
+const RULES_MESSAGE_TYPE = "tenho-tdah-rules";
+const DISABLED_MESSAGE_TYPE = "tenho-tdah-disabled";
+const STATUS_KEY = "tenho-tdah";
+const DISABLE_CONFIRMATION = "Modo TDAH desativado.";
+const STOP_PHRASES = new Set(["parar modo tdah", "modo normal"]);
 const RULES_HEADER =
-  'ADHD MODE ACTIVE. The ruleset below applies to every response until turned off. "stop adhd mode" or "normal mode" turns it off for this session.';
+  'MODO TDAH ATIVO. O conjunto de regras abaixo vale para toda resposta até ser desligado. "parar modo tdah" ou "modo normal" desliga para esta sessão.';
 const DISABLED_NOTICE =
-  "ADHD MODE OFF. Ignore the i-have-adhd ruleset injected earlier in this conversation and return to your default response style.";
+  "MODO TDAH DESLIGADO. Ignore o conjunto de regras tenho-tdah injetado antes nesta conversa e volte ao seu estilo de resposta padrão.";
 
-type AdhdModeState = {
+type TdahModeState = {
   enabled: boolean;
 };
 
-type AdhdConfig = {
+type TdahConfig = {
   alwaysOn?: boolean;
   hideStatus?: boolean;
 };
 
-function loadConfig(): AdhdConfig {
+function loadConfig(): TdahConfig {
   try {
     return JSON.parse(
-      readFileSync(join(getAgentDir(), "i-have-adhd.json"), "utf8"),
+      readFileSync(join(getAgentDir(), "tenho-tdah.json"), "utf8"),
     );
   } catch {
     return {};
@@ -66,13 +66,13 @@ function loadRules(): string {
   } catch (error) {
     const reason = error instanceof Error ? error.message : String(error);
     throw new Error(
-      `Unable to load i-have-adhd rules from ${SKILL_PATH}: ${reason}`,
+      `Não foi possível carregar as regras tenho-tdah de ${SKILL_PATH}: ${reason}`,
     );
   }
 
   const rules = stripFrontmatter(content);
   if (!rules) {
-    throw new Error(`The i-have-adhd rules file is empty: ${SKILL_PATH}`);
+    throw new Error(`O arquivo de regras tenho-tdah está vazio: ${SKILL_PATH}`);
   }
 
   return rules;
@@ -86,7 +86,7 @@ function getSavedState(ctx: ExtensionContext): boolean | undefined {
       continue;
     }
 
-    const data = entry.data as Partial<AdhdModeState> | undefined;
+    const data = entry.data as Partial<TdahModeState> | undefined;
     if (typeof data?.enabled === "boolean") {
       savedState = data.enabled;
     }
@@ -110,9 +110,9 @@ function rulesAreInContext(ctx: ExtensionContext): boolean {
   );
 }
 
-export default function iHaveAdhdExtension(pi: ExtensionAPI) {
+export default function tenhoTdahExtension(pi: ExtensionAPI) {
   const rules = loadRules();
-  const alwaysOnFlag = join(getAgentDir(), ".i-have-adhd-always");
+  const alwaysOnFlag = join(getAgentDir(), ".tenho-tdah-always");
   const config = loadConfig();
   let enabled = false;
 
@@ -123,7 +123,7 @@ export default function iHaveAdhdExtension(pi: ExtensionAPI) {
     }
 
     const dot = ctx.ui.theme.fg("success", "●");
-    const label = ctx.ui.theme.fg("accent", "ADHD ON");
+    const label = ctx.ui.theme.fg("accent", "TDAH ATIVO");
     ctx.ui.setStatus(STATUS_KEY, `${dot} ${label}`);
   };
 
@@ -161,7 +161,7 @@ export default function iHaveAdhdExtension(pi: ExtensionAPI) {
   const restoreState = (ctx: ExtensionContext): void => {
     const savedState = getSavedState(ctx);
     const enabledByDefault =
-      pi.getFlag("adhd") === true ||
+      pi.getFlag("tdah") === true ||
       config.alwaysOn === true ||
       existsSync(alwaysOnFlag);
 
@@ -172,20 +172,20 @@ export default function iHaveAdhdExtension(pi: ExtensionAPI) {
 
   const setEnabled = (nextEnabled: boolean, ctx: ExtensionContext): void => {
     enabled = nextEnabled;
-    pi.appendEntry(STATE_ENTRY_TYPE, { enabled } satisfies AdhdModeState);
+    pi.appendEntry(STATE_ENTRY_TYPE, { enabled } satisfies TdahModeState);
     updateStatus(ctx);
     syncContext(ctx);
-    ctx.ui.notify(`ADHD mode ${enabled ? "enabled" : "disabled"}`, "info");
+    ctx.ui.notify(`Modo TDAH ${enabled ? "ativado" : "desativado"}`, "info");
   };
 
-  pi.registerFlag("adhd", {
-    description: "Start with ADHD-friendly output enabled",
+  pi.registerFlag("tdah", {
+    description: "Iniciar com a saída adaptada para TDAH ativada",
     type: "boolean",
     default: false,
   });
 
-  pi.registerCommand("i-have-adhd", {
-    description: "Toggle ADHD-friendly output for this session",
+  pi.registerCommand("tenho-tdah", {
+    description: "Alternar a saída adaptada para TDAH nesta sessão",
     handler: async (args, ctx) => {
       const argument = args.trim().toLowerCase();
 
@@ -204,7 +204,7 @@ export default function iHaveAdhdExtension(pi: ExtensionAPI) {
         return;
       }
 
-      ctx.ui.notify("Usage: /i-have-adhd [on|off]", "warning");
+      ctx.ui.notify("Uso: /tenho-tdah [on|off]", "warning");
     },
   });
 
@@ -213,7 +213,7 @@ export default function iHaveAdhdExtension(pi: ExtensionAPI) {
 
     // Keep the built-in skill command working as an alias without letting Pi
     // expand a second copy of the same rules into the conversation.
-    if (input === "/skill:i-have-adhd") {
+    if (input === "/skill:tenho-tdah") {
       setEnabled(true, ctx);
       return { action: "handled" };
     }
@@ -227,7 +227,7 @@ export default function iHaveAdhdExtension(pi: ExtensionAPI) {
 
       return {
         action: "transform",
-        text: `Reply with exactly: ${DISABLE_CONFIRMATION}`,
+        text: `Responda exatamente: ${DISABLE_CONFIRMATION}`,
       };
     }
 

@@ -8,14 +8,14 @@ import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const skillsDir = path.resolve(__dirname, '../../skills');
-const skillPath = path.join(skillsDir, 'i-have-adhd', 'SKILL.md');
-const commandPath = path.join(__dirname, '..', 'command', 'i-have-adhd.md');
+const skillPath = path.join(skillsDir, 'tenho-tdah', 'SKILL.md');
+const commandPath = path.join(__dirname, '..', 'command', 'tenho-tdah.md');
 
-const SKILL_ID = 'i-have-adhd';
+const SKILL_ID = 'tenho-tdah';
 const FALLBACK_DESCRIPTION =
-  'Shape output for a reader with ADHD: lead with the next action, number ' +
-  'multi-step work, restate state across turns, suppress tangents, give ' +
-  'specific time estimates, make wins visible.';
+  'Molda a saída para um leitor com TDAH: comece pela próxima ação, numere ' +
+  'tarefas de vários passos, repita o estado a cada turno, corte tangentes, ' +
+  'dê estimativas de tempo específicas e deixe as conquistas visíveis.';
 
 // Command frontmatter is JSON so both loaders can share metadata without a YAML parser.
 async function commandDefinition() {
@@ -28,7 +28,7 @@ async function commandDefinition() {
 const flagPath = path.join(
   process.env.XDG_CONFIG_HOME || path.join(os.homedir(), '.config'),
   'opencode',
-  '.i-have-adhd-always',
+  '.tenho-tdah-always',
 );
 
 // Match the shared hooks' frontmatter stripping and newline handling.
@@ -43,9 +43,9 @@ function alwaysOnInjection() {
   try {
     if (!fs.existsSync(flagPath)) return null;
     const header =
-      'ADHD MODE ACTIVE (always-on). The ruleset below applies to every ' +
-      'response. "stop adhd mode" or "normal mode" turns it off for this ' +
-      'session; delete ' + flagPath + ' to turn always-on off for good.';
+      'MODO TDAH ATIVO (sempre ligado). O conjunto de regras abaixo vale para ' +
+      'toda resposta. "parar modo tdah" ou "modo normal" desliga para esta ' +
+      'sessão; apague ' + flagPath + ' para desligar o modo sempre ligado de vez.';
     return header + '\n\n' + rulesetBody();
   } catch {
     return null;

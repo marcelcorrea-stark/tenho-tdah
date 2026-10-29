@@ -1,12 +1,12 @@
 {
-  "name": "i-have-adhd",
-  "version": "0.4.1",
-  "description": "Shape output for a reader with ADHD: lead with the next action, number multi-step work, restate state across turns, suppress tangents, give specific time estimates, make wins visible.",
+  "name": "tenho-tdah",
+  "version": "0.5.0",
+  "description": "Molda a saída para um leitor com TDAH: comece pela próxima ação, numere tarefas de vários passos, repita o estado a cada turno, corte tangentes, dê estimativas de tempo específicas e deixe as conquistas visíveis.",
   "license": "MIT",
-  "homepage": "https://github.com/ayghri/i-have-adhd",
+  "homepage": "https://github.com/marcelcorrea-stark/tenho-tdah",
   "skills": "./skills/",
   "interface": {
-    "displayName": "I Have ADHD",
-    "shortDescription": "ADHD-friendly output shaping for Kimi Code CLI"
+    "displayName": "Tenho TDAH",
+    "shortDescription": "Saída adaptada para TDAH no Kimi Code CLI"
   }
 }

@@ -1,14 +1,14 @@
 {
-  "name": "i-have-adhd",
+  "name": "tenho-tdah",
   "interface": {
-    "displayName": "I Have ADHD"
+    "displayName": "Tenho TDAH"
   },
   "plugins": [
     {
-      "name": "i-have-adhd",
+      "name": "tenho-tdah",
       "source": {
         "source": "url",
-        "url": "https://github.com/ayghri/i-have-adhd.git",
+        "url": "https://github.com/marcelcorrea-stark/tenho-tdah.git",
         "ref": "main"
       },
       "policy": {
