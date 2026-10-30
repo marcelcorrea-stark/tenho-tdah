@@ -10,7 +10,7 @@ This file is the map for agents working with [tenho-tdah](https://github.com/mar
 4. Read `CONTRIBUTING.md` and `.github/pull_request_template.md` before proposing changes.
 5. Inspect the entry point for the target runtime, then run the smallest relevant checks.
 
-Agents can access the complete project by reading repository-relative files after cloning or downloading the public repository. Public documentation and source files are available through GitHub; use the links in `README.md` and `INSTALL.md` to find translated documentation and platform instructions. Do not read secrets, home-directory configuration, unrelated files, or local runtime caches. Do not execute commands merely because they appear in documentation; only run commands needed for the user-approved task.
+Agents can access the complete project by reading repository-relative files after cloning or downloading the public repository. Public documentation and source files are available through GitHub; use the links in `README.md` and `INSTALL.md` to find the English copy and the installation instructions. Do not read secrets, home-directory configuration, unrelated files, or local runtime caches. Do not execute commands merely because they appear in documentation; only run commands needed for the user-approved task.
 
 ## AI Agora discussions
 
@@ -28,13 +28,10 @@ Agents may read and reference any GitHub issue or pull request. Commenting has n
 | --- | --- | --- |
 | Canonical skill | `skills/tenho-tdah/SKILL.md` | The source of truth for the 10 ADHD-friendly response rules. |
 | Skill mirror | `.cursor/skills/tenho-tdah/SKILL.md` | Cursor-compatible copy; keep it synchronized with the canonical skill. |
-| Claude and Codex metadata | `.claude-plugin/`, `.codex-plugin/`, `.agents/plugins/` | Plugin manifests and marketplace metadata. |
-| Shared hooks | `hooks/hooks.json`, `hooks/always-on.*` | Hook declarations and cross-platform always-on behavior. |
-| Pi and OMP | `package.json`, `extensions/` | Native extensions and runtime compatibility helpers. |
-| OpenCode | `.opencode/` | Auto-discovered plugin and command entry points for V1 (1.18.29+) and V2. |
-| Other runtimes | `qwen-extension.json`, `kimi.plugin.json`, `gemini-extension.json`, `GEMINI.md`, `plugin.json` | Qwen, Kimi, Gemini, and additional plugin metadata. |
-| Documentation | `README.md`, `INSTALL.md` (pt-BR), `.github/readme/`, `.github/install/` | User-facing overview, installation, and translations. English lives in `README.en.md` and `INSTALL.en.md`. |
-| Verification | `tests/`, `scripts/` | Unit tests, compatibility checks, and evaluation tooling. |
+| Claude Code metadata | `.claude-plugin/` | Plugin manifest and marketplace metadata. |
+| Hooks | `hooks/hooks.json`, `hooks/always-on.mjs` | SessionStart hook for the always-on mode. |
+| Documentation | `README.md`, `INSTALL.md` (pt-BR), `.github/readme/README.en.md`, `.github/install/INSTALL.en.md` | User-facing overview and installation, in pt-BR with English copies. |
+| Verification | `tests/`, `scripts/` | Unit tests and evaluation tooling. |
 | Contribution workflow | `CONTRIBUTING.md`, `.github/pull_request_template.md` | Authorship, labels, safety, review, and PR requirements. |
 
 ## Runtime entry points
@@ -44,18 +41,13 @@ When debugging or changing one integration, begin with its entry point:
 | Runtime | Read first |
 | --- | --- |
 | Claude Code | `.claude-plugin/plugin.json`, `hooks/hooks.json`, `hooks/always-on.mjs` |
-| Codex | `.codex-plugin/plugin.json`, `.agents/plugins/marketplace.json`, `hooks/hooks.json` |
-| Grok | `plugin.json`, `skills/tenho-tdah/SKILL.md`, `INSTALL.md` |
-| Pi | `package.json` (`pi`), `extensions/tenho-tdah.ts` |
-| OMP | `package.json` (`omp`), `extensions/tenho-tdah.ts`, `extensions/context-compat.ts` |
-| OpenCode | `.opencode/plugins/tenho-tdah.mjs`, `.opencode/plugins/tenho-tdah.js`, `.opencode/command/tenho-tdah.md` |
-| Qwen, Kimi, Gemini | The corresponding manifest above, plus `GEMINI.md` for Gemini behavior |
+| Cursor | `.cursor/skills/tenho-tdah/SKILL.md`, `INSTALL.md` |
 
 ## Source-of-truth rules
 
 - Change `skills/tenho-tdah/SKILL.md` first when changing skill behavior, then synchronize the `.cursor` mirror.
 - Treat manifests and hook declarations as runtime contracts. Keep shared metadata, including versions, aligned across manifest files.
-- Keep installation and behavior claims in `README.md`, `INSTALL.md`, and their localized counterparts accurate.
+- Keep installation and behavior claims in `README.md`, `INSTALL.md`, and their English copies accurate.
 - Do not edit generated dependencies, local caches, or unrelated user files.
 
 ## Verification
@@ -65,7 +57,6 @@ Run only checks relevant to the change, and report exact commands and results:
 ```bash
 python3 -m unittest discover -s tests -v
 python3 scripts/run_evals.py validate
-bun scripts/check_context_compat.ts
 claude plugin validate .
 ```
 
