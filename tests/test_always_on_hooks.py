@@ -24,22 +24,6 @@ class AlwaysOnHookTest(unittest.TestCase):
         runtimes = []
         if node := shutil.which("node"):
             runtimes.append(("node", [node, self.plugin_root / "hooks" / "always-on.mjs"]))
-        if sh := shutil.which("sh"):
-            runtimes.append(("sh", [sh, self.plugin_root / "hooks" / "always-on.sh"]))
-        if powershell := shutil.which("pwsh") or shutil.which("powershell"):
-            runtimes.append(
-                (
-                    "powershell",
-                    [
-                        powershell,
-                        "-NoProfile",
-                        "-ExecutionPolicy",
-                        "Bypass",
-                        "-File",
-                        self.plugin_root / "hooks" / "always-on.ps1",
-                    ],
-                )
-            )
         return runtimes
 
     def run_hook(self, command):
@@ -53,14 +37,13 @@ class AlwaysOnHookTest(unittest.TestCase):
             env=env,
         )
 
-    def run_codex_hook(self, plugin_root=None):
+    def run_claude_hook(self, plugin_root=None):
         config = json.loads((ROOT / "hooks" / "hooks.json").read_text())
         hook = config["hooks"]["SessionStart"][0]["hooks"][0]
         env = os.environ.copy()
         env["CLAUDE_CONFIG_DIR"] = str(self.config_dir)
         plugin_root = plugin_root or self.plugin_root
         env["CLAUDE_PLUGIN_ROOT"] = str(plugin_root)
-        env["PLUGIN_ROOT"] = str(plugin_root)
         return subprocess.run(
             hook["command"],
             check=False,
@@ -80,9 +63,8 @@ class AlwaysOnHookTest(unittest.TestCase):
 
     @staticmethod
     def normalize(stdout):
-        # The banner embeds the flag path. On Windows the sh runtime joins it
-        # with "/" while node and PowerShell join with "\"; both name the same
-        # file, so unify separators (and newlines) before comparing runtimes.
+        # The banner embeds the flag path, joined with "\" on Windows; unify
+        # separators and newlines so assertions hold on every OS.
         return stdout.replace("\r\n", "\n").replace("\\", "/")
 
     def test_hook_is_silent_without_opt_in_flag(self):
@@ -99,7 +81,6 @@ class AlwaysOnHookTest(unittest.TestCase):
         skill_path = self.plugin_root / "skills" / "tenho-tdah" / "SKILL.md"
         skill_path.write_text("---   \nname: fixture\n--- \t\nFixture body.\n")
         (self.config_dir / ".tenho-tdah-always").touch()
-        outputs = {}
 
         for name, command in self.runtimes():
             with self.subTest(runtime=name):
@@ -109,9 +90,6 @@ class AlwaysOnHookTest(unittest.TestCase):
                 normalized = self.normalize(result.stdout)
                 self.assertNotIn("name: fixture", normalized)
                 self.assertIn("\n\nFixture body.\n", normalized)
-                outputs[name] = normalized
-
-        self.assertEqual(1, len(set(outputs.values())))
 
     def test_runtimes_keep_content_when_frontmatter_is_unclosed(self):
         # An opening --- with no closing delimiter is not frontmatter. Keeping
@@ -120,7 +98,6 @@ class AlwaysOnHookTest(unittest.TestCase):
         skill_path = self.plugin_root / "skills" / "tenho-tdah" / "SKILL.md"
         skill_path.write_text("---\nname: fixture\nFixture body, fence never closed.\n")
         (self.config_dir / ".tenho-tdah-always").touch()
-        outputs = {}
 
         for name, command in self.runtimes():
             with self.subTest(runtime=name):
@@ -129,34 +106,31 @@ class AlwaysOnHookTest(unittest.TestCase):
                 self.assertEqual("", result.stderr)
                 normalized = self.normalize(result.stdout)
                 self.assertIn("Fixture body, fence never closed.", normalized)
-                outputs[name] = normalized
 
-        self.assertEqual(1, len(set(outputs.values())))
-
-    def test_codex_command_runs_the_hook_instead_of_parsing_session_json(self):
+    def test_claude_command_runs_the_hook_instead_of_parsing_session_json(self):
         (self.config_dir / ".tenho-tdah-always").touch()
 
-        result = self.run_codex_hook()
+        result = self.run_claude_hook()
 
         self.assertEqual(0, result.returncode, result.stderr)
         self.assertEqual("", result.stderr)
         self.assertIn("MODO TDAH ATIVO (sempre ligado)", result.stdout)
 
-    def test_codex_command_is_silent_without_opt_in_flag(self):
-        result = self.run_codex_hook()
+    def test_claude_command_is_silent_without_opt_in_flag(self):
+        result = self.run_claude_hook()
 
         self.assertEqual(0, result.returncode, result.stderr)
         self.assertEqual("", result.stderr)
         self.assertEqual("", result.stdout)
 
-    def test_codex_command_swallows_missing_plugin_errors(self):
-        result = self.run_codex_hook(self.plugin_root / "missing plugin")
+    def test_claude_command_swallows_missing_plugin_errors(self):
+        result = self.run_claude_hook(self.plugin_root / "missing plugin")
 
         self.assertEqual(0, result.returncode, result.stderr)
         self.assertEqual("", result.stderr)
         self.assertEqual("", result.stdout)
 
-    def test_hook_uses_a_shared_claude_and_codex_launcher(self):
+    def test_hook_uses_a_node_launcher_from_the_plugin_root(self):
         config = json.loads((ROOT / "hooks" / "hooks.json").read_text())
         hook = config["hooks"]["SessionStart"][0]["hooks"][0]
 
@@ -164,7 +138,6 @@ class AlwaysOnHookTest(unittest.TestCase):
         command = hook["command"]
         self.assertRegex(command, r'^node(?: --input-type=module)? -e "')
         self.assertIn("process.env.CLAUDE_PLUGIN_ROOT", command)
-        self.assertIn("process.env.PLUGIN_ROOT", command)
         self.assertIn("await import", command)
         self.assertIn(".catch", command)
 

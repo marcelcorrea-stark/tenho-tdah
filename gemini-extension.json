@@ -1,6 +1,0 @@
-{
-  "name": "tenho-tdah",
-  "version": "0.5.0",
-  "description": "Molda a saída do Gemini CLI para um leitor com TDAH: próxima ação primeiro, passos numerados, sem tangentes, estado repetido e conquistas visíveis.",
-  "contextFileName": "GEMINI.md"
-}

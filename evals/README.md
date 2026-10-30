@@ -32,7 +32,7 @@ python3 scripts/run_evals.py run \
 
 The default Claude runner reports dollar cost and receives the remaining condition budget on every call. Runners without cost reporting are rejected unless `--allow-unmetered` is supplied; use that flag only when the provider account has its own hard cap.
 
-Both example runners isolate the call from the operator's own agent configuration: `--setting-sources ""` for Claude, `--ignore-user-config --ephemeral` for Codex. Keep that isolation when adding runners: without it, user-level plugins, hooks, memory, and output styles leak into every condition and shape the responses being judged. The sharpest case is this repo's own always-on flag (`~/.claude/.tenho-tdah-always`), which would inject the full tenho-tdah ruleset into the **baseline** condition and make the comparison measure the skill against itself.
+The example runner isolates the call from the operator's own agent configuration with `--setting-sources ""`. Keep that isolation when adding runners: without it, user-level plugins, hooks, memory, and output styles leak into every condition and shape the responses being judged. The sharpest case is this repo's own always-on flag (`~/.claude/.tenho-tdah-always`), which would inject the full tenho-tdah ruleset into the **baseline** condition and make the comparison measure the skill against itself.
 
 Isolation also drops the operator's saved model and effort settings, so the claude runner pins `--model` explicitly. Keep a pin when editing the runner: without one, the eval silently runs whatever the operator (or the CLI release) defaults to; the model would vary between operators and over time, and per-token cost varies with it. The pinned model is part of the result: record it with published numbers, as below.
 
@@ -59,8 +59,7 @@ a matching runner alias alone does not establish the same model or configuration
 Missing costs or token counts produce `null` totals and deltas, not zero. Invalid
 negative, boolean, non-finite, or fractional token counts are rejected. A zero
 baseline has no meaningful percentage change, so that percentage is `null`.
-Claude input totals include cache creation/read tokens; Codex cached input is
-already part of its input count and is not added again.
+Claude input totals include cache creation/read tokens.
 
 This measures recorded generation rows, not total provider billing: judge costs
 and unrecorded failed/retried calls are excluded. Scenario captures currently omit

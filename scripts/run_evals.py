@@ -338,17 +338,6 @@ def _parse_response(
             payload.get("usage", {}) or {},
             payload.get("total_cost_usd"),
         )
-    if response_format == "codex-jsonl":
-        events = [json.loads(line) for line in output.splitlines() if line.strip()]
-        text = ""
-        usage: dict[str, Any] = {}
-        for event in events:
-            item = event.get("item", {})
-            if event.get("type") == "item.completed" and item.get("type") == "agent_message":
-                text = item.get("text", text)
-            if event.get("type") == "turn.completed":
-                usage = event.get("usage", usage)
-        return str(text).strip(), usage, None
     raise ValueError(f"Unsupported response format: {response_format}")
 
 
@@ -365,11 +354,11 @@ def _usage_tokens(usage: Optional[dict[str, Any]]) -> tuple[int | None, int | No
         return None, None
     if not isinstance(usage, dict):
         raise ValueError("usage must be an object or null")
-    for key in (*_INPUT_TOKEN_KEYS, "cached_input_tokens", "output_tokens"):
+    for key in (*_INPUT_TOKEN_KEYS, "output_tokens"):
         value = usage.get(key)
         if value is not None and (type(value) is not int or value < 0):
             raise ValueError(f"{key} must be a non-negative integer or null")
-    # Claude cache counts are additional input; Codex cached_input_tokens is a subset.
+    # Claude cache counts are additional input.
     input_values = [usage.get("input_tokens")] + [
         usage.get(key, 0) for key in _INPUT_TOKEN_KEYS[1:]
     ]

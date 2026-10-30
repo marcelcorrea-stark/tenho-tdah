@@ -189,7 +189,7 @@ class EvaluationHarnessTest(unittest.TestCase):
                 "candidate",
                 "abcd",
                 0.6,
-                {"input_tokens": 110, "cached_input_tokens": 10, "output_tokens": 40},
+                {"input_tokens": 110, "output_tokens": 40},
             ),
             self._usage_row(
                 "medical-boundary",
@@ -217,10 +217,10 @@ class EvaluationHarnessTest(unittest.TestCase):
     def test_usage_summary_rejects_mixed_runners(self):
         rows = [
             self._usage_row("direct-answer", "baseline", "a", 0.1, {}, runner="claude"),
-            self._usage_row("direct-answer", "candidate", "b", None, {}, runner="codex"),
+            self._usage_row("direct-answer", "candidate", "b", None, {}, runner="other"),
         ]
 
-        with self.assertRaisesRegex(ValueError, "claude.*codex"):
+        with self.assertRaisesRegex(ValueError, "claude.*other"):
             run_evals.summarize_usage(rows)
 
     def test_usage_summary_rejects_unpaired_conditions(self):
@@ -261,12 +261,6 @@ class EvaluationHarnessTest(unittest.TestCase):
                 }
             ),
         )
-        self.assertEqual(
-            (12, 7),
-            run_evals._usage_tokens(
-                {"input_tokens": 12, "cached_input_tokens": 5, "output_tokens": 7}
-            ),
-        )
         self.assertEqual((None, None), run_evals._usage_tokens({}))
 
     def test_usage_rejects_invalid_measurements(self):
@@ -277,7 +271,7 @@ class EvaluationHarnessTest(unittest.TestCase):
                 with self.assertRaisesRegex(ValueError, "cost_usd"):
                     run_evals.summarize_usage(rows)
         for key in ("input_tokens", "output_tokens", "cache_creation_input_tokens",
-                    "cache_read_input_tokens", "cached_input_tokens"):
+                    "cache_read_input_tokens"):
             for value in (-1, True, 1.5, float("nan"), "10"):
                 with self.subTest(key=key, value=value):
                     with self.assertRaisesRegex(ValueError, key):
