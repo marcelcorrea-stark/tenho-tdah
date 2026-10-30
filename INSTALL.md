@@ -124,7 +124,7 @@ O leitor tem TDAH. Molde toda resposta para que ele consiga agir sobre ela:
 9. Limite listas a 5 itens.
 10. Sem preâmbulo, sem recapitulação, sem fechos.
 
-Exceções: explique por completo quando pedirem para explicar. Confirme antes de ações destrutivas. Após três correções que falharam, pare e nomeie a suposição duvidosa. Se o pedido for ambíguo, faça uma pergunta curta.
+Exceções: entregue o conteúdo completo quando pedirem explicação, plano ou detalhe. Confirme antes de ações destrutivas. Após três correções que falharam, pare e nomeie a suposição duvidosa. Se o pedido for ambíguo, faça uma pergunta curta.
 ```
 </details>
 

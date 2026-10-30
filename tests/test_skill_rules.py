@@ -47,6 +47,16 @@ class AnxietyAwareRulesTest(unittest.TestCase):
         text = SKILL.read_text(encoding="utf8")
         self.assertIn("não diagnostica nem trata", text)
 
+    def test_detail_exception_covers_plans_and_analysis_not_only_explanations(self):
+        # Responses to explicit plan and detail requests came out about 40% shorter
+        # than the baseline and were judged thinner, so the exception must fire on
+        # the intent (plan, analysis, detail) and not only on the word "explicar".
+        skill = SKILL.read_text(encoding="utf8")
+        self.assertIn('"planeje"', skill)
+        self.assertIn("verificação, riscos e casos de borda", skill)
+        install = (ROOT / "INSTALL.md").read_text(encoding="utf8")
+        self.assertIn("explicação, plano ou detalhe", install)
+
     def test_cursor_mirror_is_identical(self):
         mirror = ROOT / ".cursor" / "skills" / "tenho-tdah" / "SKILL.md"
         self.assertEqual(SKILL.read_text(encoding="utf8"), mirror.read_text(encoding="utf8"))
