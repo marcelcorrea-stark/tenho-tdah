@@ -69,9 +69,9 @@ Uma skill para o seu assistente de código que impede que ele enterre a resposta
 3. Termine com um próximo passo concreto.
 4. Corte as tangentes.
 5. Repita o estado a cada turno.
-6. Estimativas de tempo específicas (minutos, não "um pouco").
+6. Estimativas de tempo específicas e aproximadas (faixas, não "um pouco").
 7. Deixe as conquistas visíveis.
-8. Erros relatados de forma objetiva.
+8. Erros e incertezas relatados de forma objetiva.
 9. Limite listas a 5 itens.
 10. Sem preâmbulo. Sem recapitulação. Sem frases de encerramento.
 
