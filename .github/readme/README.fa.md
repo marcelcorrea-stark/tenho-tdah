@@ -1,18 +1,18 @@
 <p align="center">
-  <img src="../../logo.png" alt="i-have-adhd" width="140" />
+  <img src="../../logo.png" alt="tenho-tdah" width="140" />
 </p>
 <p align="center">
   <strong align="center">خروجی‌های سازگار با ADHD. نیازی به تشخیص پزشکی نیست!</strong>
 </p>
 <p align="center">
-  <a href="../../LICENSE"><img src="https://img.shields.io/github/license/ayghri/i-have-adhd?style=flat" alt="مجوز"></a>
+  <a href="../../LICENSE"><img src="https://img.shields.io/github/license/marcelcorrea-stark/tenho-tdah?style=flat" alt="مجوز"></a>
 </p>
 
 <p align="center">
-  <a href="../../README.md" title="English" aria-label="English">🇬🇧</a> ·
+  <a href="README.en.md" title="English" aria-label="English">🇬🇧</a> ·
   <a href="README.zh-CN.md" title="简体中文" aria-label="简体中文">🇨🇳</a> ·
   <a href="README.id.md" title="Bahasa Indonesia" aria-label="Bahasa Indonesia">🇮🇩</a> ·
-  <a href="README.pt-BR.md" title="Português (Brasil)" aria-label="Português (Brasil)">🇧🇷</a> ·
+  <a href="../../README.md" title="Português (Brasil)" aria-label="Português (Brasil)">🇧🇷</a> ·
   <a href="README.ja.md" title="日本語" aria-label="日本語">🇯🇵</a> ·
   <a href="README.vi.md" title="Tiếng Việt" aria-label="Tiếng Việt">🇻🇳</a> ·
   <a href="README.ko.md" title="한국어" aria-label="한국어">🇰🇷</a> ·
@@ -27,7 +27,7 @@
 به طور خلاصه، در اکثر ابزارها می‌توانید با دستور زیر شروع کنید:
 
 ```text
-Install the i-have-adhd skill/plugin from https://github.com/ayghri/i-have-adhd, refer to the repo's AGENTS.md for instructions.
+Install the tenho-tdah skill/plugin from https://github.com/marcelcorrea-stark/tenho-tdah, refer to the repo's AGENTS.md for instructions.
 ```
 
 🔗 [مشاهده راهنمای نصب](../install/INSTALL.fa.md)
@@ -69,7 +69,7 @@ Install the i-have-adhd skill/plugin from https://github.com/ayghri/i-have-adhd,
 
 ## قوانین
 
-۱۰ قانون ساده. متن کامل در [SKILL.md](../../skills/i-have-adhd/SKILL.md).
+۱۰ قانون ساده. متن کامل در [SKILL.md](../../skills/tenho-tdah/SKILL.md).
 
 1. همیشه با اقدام بعدی شروع کن.
 2. کارهای چندمرحله‌ای را شماره‌گذاری کن.
@@ -85,16 +85,16 @@ Install the i-have-adhd skill/plugin from https://github.com/ayghri/i-have-adhd,
 
 ## شخصی‌سازی
 
-ریپو را فورک کنید، فایل `skills/i-have-adhd/SKILL.md` را ویرایش کنید، سپس نسخه خودتان را جایگزین کنید:
+ریپو را فورک کنید، فایل `skills/tenho-tdah/SKILL.md` را ویرایش کنید، سپس نسخه خودتان را جایگزین کنید:
 
 ```bash
-claude plugin uninstall i-have-adhd            # اول نسخه اصلی رو حذف کن:
-claude plugin marketplace remove i-have-adhd   # فورک و نسخه اصلی اسم مشترک دارند
-claude plugin marketplace add <your-username>/i-have-adhd
-claude plugin install i-have-adhd@i-have-adhd
+claude plugin uninstall tenho-tdah            # اول نسخه اصلی رو حذف کن:
+claude plugin marketplace remove tenho-tdah   # فورک و نسخه اصلی اسم مشترک دارند
+claude plugin marketplace add <your-username>/tenho-tdah
+claude plugin install tenho-tdah@tenho-tdah
 ```
 
-Claude Code را ری‌استارت کنید و دوباره `/i-have-adhd` را صدا بزنید.
+Claude Code را ری‌استارت کنید و دوباره `/tenho-tdah` را صدا بزنید.
 
 
 ## اعتبارها

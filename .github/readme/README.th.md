@@ -1,18 +1,18 @@
 <p align="center">
-  <img src="../../logo.png" alt="i-have-adhd" width="140" />
+  <img src="../../logo.png" alt="tenho-tdah" width="140" />
 </p>
 <p align="center">
   <strong align="center">ตอบได้ใจความ ไม่ยืดเยื้อ จะสมาธิสั้นหรือไม่ก็เข้าใจได้!</strong>
 </p>
 <p align="center">
-  <a href="../../LICENSE"><img src="https://img.shields.io/github/license/ayghri/i-have-adhd?style=flat" alt="สัญญาอนุญาต"></a>
+  <a href="../../LICENSE"><img src="https://img.shields.io/github/license/marcelcorrea-stark/tenho-tdah?style=flat" alt="สัญญาอนุญาต"></a>
 </p>
 
 <p align="center">
-  <a href="../../README.md" title="English" aria-label="English">🇬🇧</a> ·
+  <a href="README.en.md" title="English" aria-label="English">🇬🇧</a> ·
   <a href="README.zh-CN.md" title="简体中文" aria-label="简体中文">🇨🇳</a> ·
   <a href="README.id.md" title="Bahasa Indonesia" aria-label="Bahasa Indonesia">🇮🇩</a> ·
-  <a href="README.pt-BR.md" title="Português (Brasil)" aria-label="Português (Brasil)">🇧🇷</a> ·
+  <a href="../../README.md" title="Português (Brasil)" aria-label="Português (Brasil)">🇧🇷</a> ·
   <a href="README.ja.md" title="日本語" aria-label="日本語">🇯🇵</a> ·
   <a href="README.vi.md" title="Tiếng Việt" aria-label="Tiếng Việt">🇻🇳</a> ·
   <a href="README.ko.md" title="한국어" aria-label="한국어">🇰🇷</a> ·
@@ -27,10 +27,10 @@
 คัดลอกข้อความนี้ไปวางในพรอมต์ของ CLI:
 
 ```text
-Install the i-have-adhd skill/plugin from https://github.com/ayghri/i-have-adhd, refer to the repo's AGENTS.md for instructions.
+Install the tenho-tdah skill/plugin from https://github.com/marcelcorrea-stark/tenho-tdah, refer to the repo's AGENTS.md for instructions.
 ```
 
-หรือ 🔗 [ดูวิธีติดตั้ง](../../INSTALL.md) (ภาษาอังกฤษ)
+หรือ 🔗 [ดูวิธีติดตั้ง](../install/INSTALL.en.md) (ภาษาอังกฤษ)
 
 ## มันทำอะไรได้บ้าง
 
@@ -66,7 +66,7 @@ Install the i-have-adhd skill/plugin from https://github.com/ayghri/i-have-adhd,
 
 ## กฎการตอบ
 
-มีทั้งหมด 10 ข้อ อ่านฉบับเต็มได้ใน [SKILL.md](../../skills/i-have-adhd/SKILL.md)
+มีทั้งหมด 10 ข้อ อ่านฉบับเต็มได้ใน [SKILL.md](../../skills/tenho-tdah/SKILL.md)
 
 1. เริ่มต้นด้วยสิ่งที่ทำถัดไป
 2. ใช้หมายเลขกำกับในกรณีที่งานมีหลายขั้นตอน
@@ -81,16 +81,16 @@ Install the i-have-adhd skill/plugin from https://github.com/ayghri/i-have-adhd,
 
 ## ปรับแต่งเพิ่มเติม
 
-Fork โปรเจกต์นี้ และแก้ไขไฟล์ `skills/i-have-adhd/SKILL.md` จากนั้นเปลี่ยนไปใช้เวอร์ชันของคุณด้วยคำสั่งต่อไปนี้:
+Fork โปรเจกต์นี้ และแก้ไขไฟล์ `skills/tenho-tdah/SKILL.md` จากนั้นเปลี่ยนไปใช้เวอร์ชันของคุณด้วยคำสั่งต่อไปนี้:
 
 ```bash
-claude plugin uninstall i-have-adhd            # drop the upstream copy first:
-claude plugin marketplace remove i-have-adhd   # fork and upstream share both names
-claude plugin marketplace add <your-username>/i-have-adhd
-claude plugin install i-have-adhd@i-have-adhd
+claude plugin uninstall tenho-tdah            # drop the upstream copy first:
+claude plugin marketplace remove tenho-tdah   # fork and upstream share both names
+claude plugin marketplace add <your-username>/tenho-tdah
+claude plugin install tenho-tdah@tenho-tdah
 ```
 
-รีสตาร์ต Claude Code จากนั้นเรียกใช้ `/i-have-adhd` อีกครั้ง
+รีสตาร์ต Claude Code จากนั้นเรียกใช้ `/tenho-tdah` อีกครั้ง
 
 ## เครดิต
 

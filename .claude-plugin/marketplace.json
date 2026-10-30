@@ -1,14 +1,14 @@
 {
   "$schema": "https://www.schemastore.org/claude-code-marketplace.json",
-  "name": "i-have-adhd",
-  "description": "Shape Claude Code output for an ADHD reader. Action-first, numbered steps, no tangents.",
+  "name": "tenho-tdah",
+  "description": "Molda a saída do Claude Code para um leitor com TDAH. Ação primeiro, passos numerados, sem tangentes.",
   "owner": {
     "name": "Ayoub G."
   },
   "plugins": [
     {
-      "name": "i-have-adhd",
-      "description": "Action-first, ADHD-friendly output shaping for Claude Code.",
+      "name": "tenho-tdah",
+      "description": "Saída adaptada para TDAH no Claude Code, com a ação primeiro.",
       "source": "./",
       "category": "productivity"
     }

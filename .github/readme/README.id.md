@@ -1,15 +1,15 @@
 <p align="center">
-  <img src="../../logo.png" alt="i-have-adhd" width="140" />
+  <img src="../../logo.png" alt="tenho-tdah" width="140" />
 </p>
 <p align="center">
   <strong align="center">Respons yang ramah bagi kamu yang memiliki ADHD. Tanpa perlu diagnosis!</strong>
 </p>
 <p align="center">
-  <a href="../../LICENSE"><img src="https://img.shields.io/github/license/ayghri/i-have-adhd?style=flat" alt="Lisensi"></a>
+  <a href="../../LICENSE"><img src="https://img.shields.io/github/license/marcelcorrea-stark/tenho-tdah?style=flat" alt="Lisensi"></a>
 </p>
 
 <p align="center">
-  <a href="../../README.md" title="English" aria-label="English">🇬🇧</a> ·
+  <a href="README.en.md" title="English" aria-label="English">🇬🇧</a> ·
   <a href="README.zh-CN.md" title="简体中文" aria-label="简体中文">🇨🇳</a> ·
   <strong title="Bahasa Indonesia" aria-label="Bahasa Indonesia">🇮🇩</strong> ·
   <a href="README.ja.md" title="日本語" aria-label="日本語">🇯🇵</a> ·
@@ -61,7 +61,7 @@ Sebuah skill untuk asisten coding-mu yang mencegahnya mengubur jawaban di tengah
 
 ## Aturannya
 
-10 aturan. Teks lengkap ada di [SKILL.md](../../skills/i-have-adhd/SKILL.md).
+10 aturan. Teks lengkap ada di [SKILL.md](../../skills/tenho-tdah/SKILL.md).
 
 1. Mulai dengan langkah selanjutnya.
 2. Beri nomor pada tugas yang memiliki beberapa langkah.
@@ -76,16 +76,16 @@ Sebuah skill untuk asisten coding-mu yang mencegahnya mengubur jawaban di tengah
 
 ## Sesuaikan (Kustomisasi)
 
-Lakukan fork, edit `skills/i-have-adhd/SKILL.md`, dan ganti dengan salinan Anda sendiri:
+Lakukan fork, edit `skills/tenho-tdah/SKILL.md`, dan ganti dengan salinan Anda sendiri:
 
 ```bash
-claude plugin uninstall i-have-adhd            # hapus salinan upstream terlebih dahulu:
-claude plugin marketplace remove i-have-adhd   # fork dan upstream menggunakan nama yang sama
-claude plugin marketplace add <username-anda>/i-have-adhd
-claude plugin install i-have-adhd@i-have-adhd
+claude plugin uninstall tenho-tdah            # hapus salinan upstream terlebih dahulu:
+claude plugin marketplace remove tenho-tdah   # fork dan upstream menggunakan nama yang sama
+claude plugin marketplace add <username-anda>/tenho-tdah
+claude plugin install tenho-tdah@tenho-tdah
 ```
 
-Mulai ulang Claude Code dan panggil `/i-have-adhd` lagi.
+Mulai ulang Claude Code dan panggil `/tenho-tdah` lagi.
 
 ## Kredit
 

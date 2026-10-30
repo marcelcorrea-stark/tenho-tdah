@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for improving **i-have-adhd**. Contributions from humans and coding agents are welcome. Keep changes understandable, reviewable, safe to run, and compatible with existing users.
+Thanks for improving **tenho-tdah**. Contributions from humans and coding agents are welcome. Keep changes understandable, reviewable, safe to run, and compatible with existing users.
 
 ## Authorship and provenance
 
@@ -65,16 +65,16 @@ Preserve existing installation methods, invocation names, file locations, opt-in
 
 A breaking change requires an issue, migration path, updated documentation, and a compatibility or deprecation plan. Prefer additive, staged changes.
 
-`skills/i-have-adhd/SKILL.md` is canonical. When it changes, synchronize the Cursor copy:
+`skills/tenho-tdah/SKILL.md` is canonical. When it changes, synchronize the Cursor copy:
 
 ```sh
-cp skills/i-have-adhd/SKILL.md .cursor/skills/i-have-adhd/SKILL.md
-cmp skills/i-have-adhd/SKILL.md .cursor/skills/i-have-adhd/SKILL.md
+cp skills/tenho-tdah/SKILL.md .cursor/skills/tenho-tdah/SKILL.md
+cmp skills/tenho-tdah/SKILL.md .cursor/skills/tenho-tdah/SKILL.md
 ```
 
 Review platform-specific manifests and documentation whenever shared names, descriptions, paths, or behavior change.
 
-Keep `.opencode/command/i-have-adhd.md` frontmatter as a JSON object between the `---` delimiters. JSON is valid YAML, so OpenCode's native loader and the global plugin can share the same command metadata without an additional parser dependency.
+Keep `.opencode/command/tenho-tdah.md` frontmatter as a JSON object between the `---` delimiters. JSON is valid YAML, so OpenCode's native loader and the global plugin can share the same command metadata without an additional parser dependency.
 
 ## Verification
 

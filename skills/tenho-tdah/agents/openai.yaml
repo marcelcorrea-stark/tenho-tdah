@@ -1,0 +1,7 @@
+interface:
+  display_name: "Tenho TDAH"
+  short_description: "Saída com ação primeiro para leitores com TDAH"
+  default_prompt: "Use $tenho-tdah para deixar esta resposta com a ação primeiro e fácil de executar."
+
+policy:
+  allow_implicit_invocation: false
