@@ -421,6 +421,27 @@ class EvaluationHarnessTest(unittest.TestCase):
             self.assertNotIn("disable-model-invocation", prompt)
             self.assertNotIn("hermes", prompt)
 
+    def test_every_condition_prompt_asks_for_plain_text_without_denying_tool_access(self):
+        # With --tools "" the CLI system prompt still primes tool use, so some
+        # responses are tool calls written as text. The notice must reach every
+        # condition identically or it would become a confound.
+        with tempfile.TemporaryDirectory() as tmp:
+            skill = Path(tmp) / "SKILL.md"
+            skill.write_text("Lead with the next action.\n")
+
+            prompts = [
+                run_evals._condition_prompt("Fix the bug.", "baseline", None),
+                run_evals._condition_prompt("Fix the bug.", "candidate", skill),
+                run_evals._condition_prompt("Fix the bug.", "comparator", skill),
+            ]
+
+            for prompt in prompts:
+                self.assertIn(run_evals.TEXT_ONLY_NOTICE, prompt)
+                self.assertIn("Fix the bug.", prompt)
+            # A case may state that the agent has repository access; the notice
+            # must not contradict that premise or it manufactures autonomy failures.
+            self.assertNotIn("no tools", run_evals.TEXT_ONLY_NOTICE.lower())
+
     def test_condition_prompt_keeps_a_skill_body_that_has_no_frontmatter(self):
         with tempfile.TemporaryDirectory() as tmp:
             skill = Path(tmp) / "SKILL.md"
